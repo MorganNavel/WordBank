@@ -1,6 +1,7 @@
 import sqlite3
+from tkinter import *
 
-connection = sqlite3.connect("BDD/base.db")
+connection = sqlite3.connect("base.db")
 cursor = connection.cursor()
 word = ""
 def addWord(cursor,connection,reponse):
