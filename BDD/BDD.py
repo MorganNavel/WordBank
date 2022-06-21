@@ -16,7 +16,6 @@ def addWord(cursor,connection,reponse):
     connection.commit()
     print("The word has sucessfuly been send to the word bank.")
             
-
 def getTranslation(cursor,language):
     stop = False
     if(language == "English"):
