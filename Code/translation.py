@@ -1,46 +1,47 @@
 import sqlite3
 from tkinter import *
+window = Tk()
 
-connection = sqlite3.connect("BDD/base.db")
-cursor = connection.cursor()
 
-def traitement_formulaire():
+
+def traitement_mot():
+    print(window.winfo_children())
     print("The information has been successfuly sent.")
-    print(language.get())
+    connection = sqlite3.connect("BDD/base.db")
+    with connection:
+        cursor = connection.cursor()
     if(language.get()=="French"):
         if(french_word.get()!=""):
-            print(french_word.get())
-            word=(french_word.get())
+            word=(french_word.get(),)
             cursor.execute("SELECT  Korean FROM Translation WHERE French = ?",word)
-            print(cursor.fetchone()[0])
-            Label(frame2,text="Coréen: "+cursor.fetchone()[0]+"").pack()
+            Label(window,bg="white",text=cursor.fetchone()[0],font=("Arial")).pack()
             cursor.execute("SELECT  English FROM Translation WHERE French = ?",word)
-            Label(frame2,text="Anglais: "+cursor.fetch()[0]+".").pack()
+            Label(window,bg="white",text=cursor.fetchone()[0],font=("Arial")).pack()
         else:
             print("You have to fill the French field")
     elif(language.get()=="English"):
         if(english_word.get()!=""):
-            word=(english_word.get())
+            word=(english_word.get(),)
             cursor.execute("SELECT  Korean FROM Translation WHERE English = ?",word)
-            Label(frame2,text="Korean: "+cursor.fetchone()[0]+"").pack()
+            print(cursor.fetchone()[0])
             cursor.execute("SELECT  French FROM Translation WHERE English = ?",word)
-            Label(frame2,text="French: "+cursor.fetchone()[0]+"").pack()
+            print(cursor.fetchone()[0])
         else:
             print("You have to fill the English field")
     elif(language.get()=="Korean"):
-        if(english_word.get()!=""):
-            word=(korean_word.get())
+        if(korean_word.get()!=""):
+            word=(korean_word.get(),)
             cursor.execute("SELECT  English FROM Translation WHERE Korean = ?",word)
-            Label(frame2,text="영국어: "+cursor.fetchone()[0]+"").pack()
+            print(cursor.fetchone()[0])
             cursor.execute("SELECT  French FROM Translation WHERE Korean = ?",word)
-            Label(frame2,text="프랑스어: "+cursor.fetchone()[0]+"").pack()
+            print(cursor.fetchone()[0])
         else:
             print("You have to fill the Korean field")  
+    connection.close()
 
         
 
-window = Tk()
-window=window
+
 window.title("WordBank")
 window.minsize(480,360)
 window.config(background="white")
@@ -79,14 +80,12 @@ korean_field = Entry(frame,bg="white",text="Korean",font=("Arial"),textvariable=
 label_korean.pack()
 korean_field.pack(expand=YES)
         
-button_submit = Button(frame,bg="white",text="Submit",font=("Arial"),command=traitement_formulaire)
+button_submit = Button(frame,bg="white",text="Submit",font=("Arial"),command=traitement_mot)
 button_submit.pack(pady=25)
 
 frame.pack()
 
-frame2 = Frame(window,bg="white")
 
         
 window.mainloop()
-connection.close()
 

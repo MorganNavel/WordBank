@@ -1,7 +1,7 @@
 import sqlite3
 from tkinter import *
 
-connection = sqlite3.connect("base.db")
+connection = sqlite3.connect("./base.db")
 cursor = connection.cursor()
 word = ""
 def addWord(cursor,connection,reponse):
@@ -28,9 +28,9 @@ def getTranslation(cursor,language):
             else:
                 word = (string,)
                 cursor.execute("SELECT  Korean FROM Translation WHERE English = ?",word)
-                print("The translation is "+cursor.fetchone()[0]+" in Korean.")
+                print("The translation is "+cursor.fetchone()+" in Korean.")
                 cursor.execute("SELECT  French FROM Translation WHERE English = ?",word)
-                print("The translation is "+cursor.fetchone()[0]+" in French.")
+                print("The translation is "+cursor.fetchone()+" in French.")
     elif(language=="French"):
         while(not(stop)):
             print("\nChoisissez le mot que vous voulez traduire ou entrer '?!' pour choisir une autre langue.")
@@ -52,9 +52,9 @@ def getTranslation(cursor,language):
             else :
                 word = (string,)
                 cursor.execute("SELECT  French FROM Translation WHERE Korean = ?",word)
-                print("이 말이 프랑스로 "+cursor.fetchone()[0]+" 이라고 예요.")
+                print("이 말이 프랑스로 "+cursor.fetchone()+" 이라고 예요.")
                 cursor.execute("SELECT  English FROM Translation WHERE Korean = ?",word)
-                print("이 말이 영어로 "+cursor.fetchone()[0]+" 이라고 예요.")
+                print("이 말이 영어로 "+cursor.fetchone()+" 이라고 예요.")
     else:
         exit()
     stop=False
