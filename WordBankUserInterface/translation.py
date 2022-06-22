@@ -7,8 +7,7 @@ window = Tk()
 def traitement_mot():
     for child in frameTranslation.winfo_children():
         child.destroy()
-    print("The information has been successfuly sent.")
-    connection = sqlite3.connect("BDD/base.db")
+    connection = sqlite3.connect("form/base.db")
     with connection:
         cursor = connection.cursor()
     if(language.get()=="French"):
@@ -23,7 +22,7 @@ def traitement_mot():
     elif(language.get()=="English"):
         if(english_word.get()!=""):
             word=(english_word.get(),)
-            cursor.execute("SELECT  French FROM Translation WHERE English = ?",word,font=("Arial"))
+            cursor.execute("SELECT  French FROM Translation WHERE English = ?",word)
             Label(frameTranslation,bg="white",text="French: "+cursor.fetchone()[0],font=("Arial")).pack()
             cursor.execute("SELECT  Korean FROM Translation WHERE English = ?",word)
             Label(frameTranslation,bg="white",text="Korean: "+cursor.fetchone()[0],font=("Arial")).pack()
@@ -64,19 +63,19 @@ frame = Frame(window,bg="white")
 #champ de texte
 
 Radiobutton(frame, bg="white",variable=language,value="English").pack()
-label_english = Label(frame, bg="white",text="Enter english word",font=("Arial",10))
+label_english = Label(frame, bg="white",text="Enter English word",font=("Arial",10))
 english_field = Entry(frame,bg="white",text="English",font=("Arial"), textvariable = english_word)
 label_english.pack()
 english_field.pack(expand=YES)
 
 Radiobutton(frame, bg="white",variable=language,value="French").pack()
-label_french = Label(frame, bg="white",text="Enter french word",font=("Arial",10))
+label_french = Label(frame, bg="white",text="Enter French word",font=("Arial",10))
 french_field = Entry(frame,bg="white",text="French",font=("Arial"),textvariable = french_word)
 label_french.pack()
 french_field.pack(expand=YES)
 
 Radiobutton(frame, bg="white",variable=language,value="Korean").pack()
-label_korean = Label(frame, bg="white",text="Enter korean word",font=("Arial",10))
+label_korean = Label(frame, bg="white",text="Enter Korean word",font=("Arial",10))
 korean_field = Entry(frame,bg="white",text="Korean",font=("Arial"),textvariable=korean_word)
 label_korean.pack()
 korean_field.pack(expand=YES)
@@ -86,6 +85,8 @@ button_submit.pack(pady=25)
 
 frame.pack()
 frameTranslation=Frame(window, bg="white")
+frameTranslation.pack()
+Label(window,text="Made by Morgan L2-Computer Science at the University of Montpellier,France.",font=("Arial",7),bg="white").pack()
 frameTranslation.pack()
 
 
