@@ -23,3 +23,10 @@
 - If you want to display the words of the data base you just have to find "TranslationApp.exe" in the main directory
 - If you want to enter new words in the data base open "RegisterWordApp" in the "form" directory
 
+### Goals
+- to learn more about Python, to see what Python can do
+- to complete one of my personnal project
+- to have more experience into programming
+- to have fun doing it
+
+
