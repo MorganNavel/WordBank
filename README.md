@@ -2,7 +2,7 @@
 ## Application
 
 - GUI (Graphic User Interface with tkinter)
-- SQLite data base
+- SQLite DB
 
 ### What you can do ?
 - You can add new word to the data base (in French, English and Korean only).
