@@ -4,7 +4,7 @@
 - GUI (Graphic User Interface with tkinter)
 - SQLite DB
 
-### What you can do ?
+### What can you do ?
 - You can add new word to the data base (in French, English and Korean only).
 - You can search for a word and It will give you the meaning of the word that was entered in the data base (by you for example).
 
