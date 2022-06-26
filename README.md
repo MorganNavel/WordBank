@@ -11,7 +11,7 @@
 
 #### How to use it?
 
-- First extract "WordBank.rar"
+- First extract "WordBank.zip"
 - Open the file
 - Search for "WordBank.exe" and launch it 
 
