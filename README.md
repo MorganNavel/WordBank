@@ -5,8 +5,8 @@
 - SQLite DB
 
 ### What can you do ?
-- You can add new word to the data base (in French, English and Korean only).
-- You can search for a word and It will give you the meaning of the word that was entered in the data base (by you for example).
+- You can add new words to the data base (in French, English and Korean only).
+- You can search for a word and It will give you the meaning of it.
 
 
 #### How to use it?
