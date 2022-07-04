@@ -6,12 +6,23 @@
 
 ### What can you do ?
 - You can add new words to the data base (in French, English and Korean only).
+
+ ![Register](./wordbank_image/register_image.png)
+
 - You can search for a word and It will give you the meaning of it.
+
+ ![Translation](./wordbank_image/Translation.png)
+
 - You can see all the words that you've registered until now in the data base.
+
+![List](./wordbank_image/List_words.png)
+
 - You can by clicking on the "Practice" Button practice in 3 modes:
   - English 
   - French
   - Korean
+  
+  ![Practice](./wordbank_image/Practice.png)
 
 
 #### How to use it?
