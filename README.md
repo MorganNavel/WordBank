@@ -5,7 +5,7 @@
 - SQLite DB
 
 ### What can you do ?
-- You can add new words to the data base (in French, English and Korean only).
+- You can add new words to the data base (in French, English and Korean only, a new version as been released with english and korean only for non-french speakers).
 
  ![Register](./wordbank_image/register_image.png)
 
